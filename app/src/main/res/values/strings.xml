@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">MySelf2</string>
+    <string name="pergunta_1">Qual o seu nome?</string>
+    <string name="salvar">salvar</string>
+    <string name="item_foi_salvo">O item foi salvo</string>
+    <string name="campo_obrigatorio">Campo obrigatorio</string>
+    <string name="adicionar">adicionar</string>
+    <string name="libere_a_permissao">Libere a permissao</string>
+    <string name="permissao_muito_importante">Esta permissao e muito importante para conseguirmos efetuar uma ligação.</string>
+    <string name="sim">Sim</string>
+    <string name="fechar">fechar</string>
+    <string name="proxima">Próxima</string>
+    <string name="finalizar">finalizar</string>
+    <string-array name="opcoes">
+        <item>Item 1</item>
+        <item>Item 1</item>
+        <item>Item 1</item>
+        <item>Item 1</item>
+        <item>Item 1</item>
+        <item>Item 1</item>
+        <item>Item 1</item>
+        <item>Item 1</item>
+        <item>Item 1</item>
+        <item>Item 1</item>
+        <item>Item 1</item>
+        <item>Item 1</item>
+        <item>Item 1</item>
+        <item>Item 1</item>
+        <item>Item 1</item>
+        <item>Item 1</item>
+        <item>Item 10</item>
+    </string-array>
+</resources>
