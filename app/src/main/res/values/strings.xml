@@ -11,6 +11,8 @@
     <string name="fechar">fechar</string>
     <string name="proxima">Próxima</string>
     <string name="finalizar">finalizar</string>
+    <string name="sincronizando">Sincronizando</string>
+    <string name="background_notification_channel">Background</string>
     <string-array name="opcoes">
         <item>Item 1</item>
         <item>Item 1</item>

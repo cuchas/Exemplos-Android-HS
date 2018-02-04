@@ -1,11 +1,12 @@
 package br.com.cucha.myself2;
 
 import android.Manifest;
-import android.content.DialogInterface;
+import android.arch.lifecycle.Observer;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -13,11 +14,16 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import java.util.ArrayList;
+import java.util.List;
+
+import br.com.cucha.myself2.data.HSRDB;
+import br.com.cucha.myself2.data.Opcao;
 
 public class ListaDinamicaActivity extends AppCompatActivity implements OpcaoAdapter.OpcaoListener {
 
     private static final String LISTA_OPCAO = "LISTA_OPCAO";
-    ArrayList<Opcao> opcaoList;
+    ArrayList<Opcao> opcaoList = new ArrayList<>();
+    private OpcaoAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +37,7 @@ public class ListaDinamicaActivity extends AppCompatActivity implements OpcaoAda
             carregaOpcoes();
         }
 
-        OpcaoAdapter adapter = new OpcaoAdapter(opcaoList, this);
+        adapter = new OpcaoAdapter(opcaoList, this);
 
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setAdapter(adapter);
@@ -45,6 +51,13 @@ public class ListaDinamicaActivity extends AppCompatActivity implements OpcaoAda
             adapter.add(novaOpcao);
 
             iniciaLigacao();
+        });
+    }
+
+    private void carregaOpcoes() {
+        HSRDB hsrdb = HSRDB.getInstance(this);
+        hsrdb.opcaoDAO().getOpcoes().observe(this, opcaos -> {
+            adapter.add(opcaos);
         });
     }
 
@@ -108,19 +121,6 @@ public class ListaDinamicaActivity extends AppCompatActivity implements OpcaoAda
     protected void onSaveInstanceState(Bundle outState) {
         outState.putSerializable(LISTA_OPCAO, opcaoList);
         super.onSaveInstanceState(outState);
-    }
-
-    private void carregaOpcoes() {
-        opcaoList = new ArrayList<>();
-
-        for (int i = 0; i < 2; i++) {
-
-            Opcao opcao = new Opcao();
-            opcao.setId(i);
-            opcao.setName("Item numero " + i);
-
-            opcaoList.add(opcao);
-        }
     }
 
     @Override

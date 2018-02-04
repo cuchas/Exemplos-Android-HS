@@ -1,14 +1,15 @@
 package br.com.cucha.myself2;
 
-import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import br.com.cucha.myself2.data.Opcao;
 
 /**
  * Created by eduardocucharro on 17/01/18.
@@ -32,6 +33,11 @@ public class OpcaoAdapter extends RecyclerView.Adapter<OpcaoAdapter.OpcaoViewHol
     void add(Opcao opcao) {
         opcaoList.add(opcao);
         notifyItemInserted(opcaoList.size() - 1);
+    }
+
+    void add(List<Opcao> opcaoList) {
+        opcaoList.addAll(opcaoList);
+        notifyDataSetChanged();
     }
 
     @Override

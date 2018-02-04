@@ -7,13 +7,14 @@
     <uses-permission android:name="android.permission.BATTERY_STATS" />
 
     <application
+        android:name=".App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".ListaDinamicaActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,8 +25,9 @@
         <activity android:name=".ListaUnicaEscolhaActivity" />
         <activity android:name=".RadioActivity" />
         <activity android:name=".MultiplaEscolhaActivity" />
-        <activity android:name=".ListaDinamicaActivity" />
+        <!--<activity android:name=".ListaDinamicaActivity" />-->
         <activity android:name=".ItemSelecionadoActivity"></activity>
+        <service android:name=".DataLoaderIntentService" />
     </application>
 
 </manifest>
